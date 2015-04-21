@@ -1,0 +1,48 @@
+@import "layouts/application";
+
+.contacts-top-box {
+  overflow: hidden;
+  margin: 0 0 20px;
+}
+
+.contacts-content .link-holder {
+  float: left;
+  margin: 0 46px 0 0;
+}
+
+.upload-contacts-box {
+  float: left;
+  font-size: 11px;
+}
+
+.contacts-content {
+  .link-holder a {
+    float: none;
+    display: block;
+    margin: 0 0 10px;
+  }
+  .col1 {
+    width: 90px;
+  }
+  .col2 {
+    width: 170px;
+  }
+  .col3 {
+    width: 77px;
+  }
+  .col4 {
+    width: 100px;
+  }
+  .col5 {
+    width: 144px;
+  }
+  .del-ico-link {
+    margin: 8px 0 0 0;
+  }
+}
+
+/*.contacts-content .del-ico-link {margin:0 0 0 7px;}*/
+
+.upload-form .upload-real-btn {
+  display: none;
+}

@@ -1,0 +1,26 @@
+@import "layouts/application";
+
+.create-contact-form {
+  label {
+    min-width: 135px;
+    margin: 0 5px 0 0;
+  }
+  .text {
+    width: 332px;
+  }
+  .add-row {
+    .text {
+      width: 252px;
+    }
+    .small-text {
+      margin: 0 4px 0 0;
+      width: 66px;
+    }
+  }
+  .submit-row {
+    padding: 20px 0 0;
+    .submit {
+      margin: 0 0 0 4px;
+    }
+  }
+}

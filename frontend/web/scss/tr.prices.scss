@@ -1,0 +1,147 @@
+@import "layouts/application";
+
+.trans-prices-content .row > label {
+  width: 340px;
+}
+
+.text-holder {
+  span {
+    float: left;
+    line-height: 21px;
+    margin: 0 0 0 3px;
+    min-width: 15px;
+  }
+  .text {
+    margin: 0 0 0 15px;
+    width: 50px;
+  }
+}
+
+.trans-prices-content {
+  .border-divider {
+    width: 93%;
+  }
+  .country-row label {
+    width: 250px;
+  }
+}
+
+/*New css start*/
+
+.hide-row {
+  .country-row {
+    margin: 4px 0;
+    padding: 0;
+  }
+  margin-bottom: 12px;
+}
+
+/*New css end*/
+
+.text-holder .del-ico-link {
+  float: right;
+  margin: 4px 0 0 40px;
+}
+
+.head-row, .country-head-row {
+  padding: 0 0 0 340px;
+  font-size: 10px;
+}
+
+.column-heading {
+  float: left;
+  width: 78px;
+  margin: 0 0 0 15px;
+}
+
+.country-head-row {
+  strong {
+    float: left;
+    width: 78px;
+    margin: 0 0 0 15px;
+  }
+  padding: 0 0 0 250px;
+  .mark-head {
+    width: 110px;
+  }
+}
+
+.country-row .add-text {
+  margin-left: 46px;
+}
+
+.package-info {
+  display: block;
+  text-align: right;
+  font-size: 10px;
+  padding: 0 55px 0 0;
+  width: auto !important;
+  float: none !important;
+}
+
+.select-holder {
+  float: left;
+  width: 250px;
+}
+
+.trans-prices-content .border-divider {
+  margin-bottom: 0;
+  line-height: 1px;
+}
+
+.view-row > span:first-child {
+  width: 340px;
+  margin: 0 10px 0 0;
+}
+
+.add-view-row > span:first-child {
+  width: 255px;
+}
+
+.right-margin {
+  min-width: 86px;
+  margin: 0 8px 0 0;
+  float: left;
+}
+
+.add-view-row .right-margin {
+  min-width: 95px;
+}
+
+.trans-prices-content .row > {
+  .column-heading {
+    float: left;
+    font-weight: bold;
+  }
+  strong {
+    float: left;
+  }
+  .add-del-link {
+    margin: 0 50px 0 0;
+    float: right;
+  }
+}
+
+.add-del-link {
+  background: url("#{$images-dir}/link-sprite.gif") no-repeat 0 -28px;
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  text-decoration: none !important;
+}
+
+.add-new-country-block {
+  margin: 20px 0;
+  select {
+    width: 200px;
+    margin-right: 15px;
+  }
+}
+
+.country-price-view-row {
+  margin-bottom: 20px;
+}
+
+.prices-th-hide-row, .measure-th-hide-row {
+  display: none;
+}

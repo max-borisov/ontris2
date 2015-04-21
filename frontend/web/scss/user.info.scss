@@ -1,0 +1,25 @@
+@import "layouts/application";
+
+.user-info-content .link-holder {
+  overflow: hidden;
+  /*margin:-20px 0 10px;*/
+  margin: 0 0 10px;
+  a {
+    float: right;
+  }
+}
+
+.info-row {
+  overflow: hidden;
+  margin: 0 0 8px;
+}
+
+.info-item-name {
+  float: left;
+  min-width: 155px;
+  margin: 0 5px 0 0;
+}
+
+.info-item-content {
+  float: left;
+}

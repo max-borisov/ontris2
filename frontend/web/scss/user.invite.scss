@@ -1,0 +1,39 @@
+@import "layouts/application";
+
+.invite-form label, .view-row > span:first-child {
+  width: 110px;
+  margin: 0 10px 0 0;
+}
+
+.invite-form .update-password-block {
+  label {
+    width: 130px;
+  }
+  input {
+    width: 223px;
+  }
+}
+
+.message-row {
+  padding: 10px 0 0;
+}
+
+.invite-form {
+  .message-row label {
+    width: 100%;
+  }
+  textarea {
+    width: 518px;
+    max-width: 657px !important;
+    height: 120px;
+  }
+  .radio-frame label {
+    width: auto !important;
+  }
+  .submit-row {
+    padding: 10px 0 0;
+  }
+  .submit {
+    margin: 0 0 0 4px;
+  }
+}

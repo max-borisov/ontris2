@@ -1,0 +1,69 @@
+@import "layouts/application";
+
+#content.signup-content {
+  h2 {
+    margin-left: 0;
+  }
+  .btn-list {
+    margin: 20px 0;
+    li {
+      margin: 0 2px;
+    }
+    a {
+      min-width: 181px;
+    }
+  }
+}
+
+.signup-form {
+  .row {
+    margin: 0 0 10px;
+  }
+  .text-row label {
+    /*width:80px;*/
+    width: 130px;
+    margin: 0 8px 0 0;
+    line-height: 22px;
+  }
+  .text {
+    width: 260px;
+  }
+  .radio-btn-holder {
+    margin: 0 0 15px;
+    .radio-holder {
+      margin: 4px 0 0;
+      overflow: hidden;
+      float: none;
+    }
+    h3 {
+      font-weight: normal;
+      margin: 0 0 8px;
+    }
+  }
+  .radio-holder label {
+    margin: 0 0 0 4px;
+    float: left;
+  }
+}
+
+.sign-up-left {
+  width: 410px;
+  float: left;
+}
+
+.sign-up-right {
+  float: right;
+  width: 248px;
+  margin-top: -20px;
+  li {
+    margin: 15px 0;
+  }
+}
+
+.country-msg-tpl, .country-msg {
+  display: none;
+}
+
+.user-from-section input.text {
+  width: 180px;
+}

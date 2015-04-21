@@ -1,0 +1,56 @@
+@import "layouts/application";
+
+.link-holder {
+  overflow: hidden;
+  margin: 0 0 20px;
+  .more-link {
+    float: right;
+  }
+}
+
+.border-divider {
+  width: 100%;
+}
+
+.submit {
+  float: left;
+}
+
+.availability-content {
+  table {
+    th {
+      width: 90px;
+      overflow: hidden;
+      &.col-wide {
+        width: 370px;
+      }
+    }
+    .del-ico-link {
+      float: right;
+      margin: 0 0 0 5px;
+    }
+  }
+  .row > label {
+    float: left;
+    min-width: 165px;
+    margin: 0 5px 0 0;
+  }
+  .select-holder {
+    float: left;
+    select, span {
+      float: left;
+      margin: 0 5px 0 0;
+    }
+  }
+}
+
+#content {
+  .top-margin {
+    margin-top: 20px;
+  }
+  form .row .mark-span {
+    float: left;
+    font-size: 11px;
+    margin: 7px 0 0 4px;
+  }
+}

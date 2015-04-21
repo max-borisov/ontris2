@@ -1,0 +1,54 @@
+@import "layouts/application";
+
+.presentation-header-box {
+  overflow: hidden;
+  address {
+    font-style: normal;
+    float: right;
+    width: 115px;
+    text-align: right;
+  }
+}
+
+.column-holder {
+  overflow: hidden;
+  section {
+    float: left;
+    margin: 0 0 0 15px;
+    width: 140px;
+  }
+  .company-info {
+    width: 340px;
+  }
+  > section:first-child {
+    margin: 0;
+  }
+}
+
+h3 {
+  margin: 0 0 10px;
+  font: bold 14px Arial, Helvetica, sans-serif;
+  color: #404040;
+}
+
+.references-column em {
+  display: block;
+  margin: 0 0 10px;
+  font-size: 10px;
+}
+
+.facts-column ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  li {
+    padding: 0 0 0 15px;
+    margin: 0 0 18px;
+    background: url(../images/check.gif) no-repeat;
+    font-size: 10px;
+  }
+}
+
+.presentation-divider {
+  width: 100%;
+}

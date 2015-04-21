@@ -1,0 +1,24 @@
+body {
+  -webkit-text-size-adjust: 100%;
+}
+
+input {
+  &[type=submit], &[type=text], &[type=password], &[type=file] {
+    -webkit-appearance: none;
+  }
+}
+
+textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+input {
+  &[type=submit], &[type=text] {
+    -webkit-border-radius: 0;
+  }
+  &[type="image"] {
+    padding: 0;
+    border: none;
+  }
+}

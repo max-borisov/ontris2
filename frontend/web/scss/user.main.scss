@@ -1,0 +1,59 @@
+@import "layouts/application";
+
+.link-holder {
+  overflow: hidden;
+  margin: 0 0 20px;
+  .more-link {
+    float: right;
+  }
+}
+
+.user-main-content table {
+  thead th {
+    &.col1 {
+      width: 220px;
+    }
+    &.col2 {
+      width: 200px;
+    }
+    &.col3 {
+      width: 160px;
+    }
+  }
+  a {
+    margin: 0 0 0 4px;
+    vertical-align: middle;
+  }
+  thead {
+    font-size: 11px;
+  }
+}
+
+user-main-content .table-heading {
+  display: block;
+  margin: 20px 0;
+}
+
+.link-holder-box {
+  display: block;
+  min-width: 68px;
+  text-align: center;
+}
+
+.col-wide {
+  min-width: 68px;
+}
+
+.list-link {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  overflow: hidden;
+  li {
+    float: left;
+  }
+}
+
+.user-main-content table {
+  width: 100%;
+}

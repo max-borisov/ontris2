@@ -1,0 +1,42 @@
+@import "layouts/application";
+
+.omCargoMarket-content {
+  h2 {
+    font-size: 26px;
+    font-weight: normal;
+    line-height: 28px;
+    margin: 0 0 13px;
+  }
+  .text-section {
+    overflow: hidden;
+    position: relative;
+    &:first-child {
+      margin: 0;
+    }
+  }
+}
+
+.about-text {
+  line-height: 17px;
+  float: left;
+  width: 578px;
+  p {
+    margin: 0 0 10px;
+    line-height: 13px;
+    span {
+      line-height: 17px;
+    }
+  }
+}
+
+.item-head {
+  float: left;
+  width: 85px;
+  line-height: 17px;
+}
+
+.about-text ul {
+  padding: 0;
+  margin: 0 0 10px 15px;
+  list-style: none;
+}

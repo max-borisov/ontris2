@@ -1,0 +1,209 @@
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+/* error msg */
+
+div.form-box span.required, fieldset span.required {
+  color: red;
+}
+
+div.form-box label.error, fieldset label.error, div.form-box span.error, fieldset span.error {
+  color: #C00;
+}
+
+/*div.form-box div.error input,
+div.form div.error textarea,
+div.form div.error select,*/
+
+div {
+  &.form-box {
+    .select-error, input.error, textarea.error, select.error {
+      background: #FEE;
+      border-color: #C00;
+    }
+  }
+  &.flash-success {
+    padding: .8em;
+    margin-bottom: 1em;
+    border: 2px solid #ddd;
+    background: #E6EFC2;
+    color: #264409;
+    border-color: #C6D880;
+  }
+  &.flash-error {
+    padding: .8em;
+    margin-bottom: 1em;
+    background: #FBE3E4;
+    color: #8a1f11;
+    border: 2px solid #FBC2C4;
+  }
+  &.flash-info {
+    padding: .8em;
+    margin-bottom: 1em;
+    background: #d9edf7;
+    color: #264409;
+    border: 2px solid #8bb8ca;
+  }
+}
+
+/* end error msg */
+
+/* flash msg */
+/*div.form-box .errorSummary,
+fieldset .errorSummary
+{
+    border: 2px solid #C00;
+    padding: 7px 7px 12px 7px;
+    margin: 0 0 20px 0;
+    background: #FEE;
+    font-size: 0.9em;
+}
+div.form-box .errorSummary p,
+fieldset .errorSummary p{
+    margin: 0;
+    padding: 5px;
+}
+div.form-box .errorSummary ul,
+fieldset .errorSummary ul{
+    margin: 0;
+    padding: 0 0 0 20px;
+}*/
+
+/* --- */
+
+.errorSummary {
+  border: 2px solid #C00;
+  padding: 7px 7px 12px 7px;
+  margin: 0 0 20px 0;
+  background: #FEE;
+  font-size: 0.9em;
+  p {
+    margin: 0;
+    padding: 5px;
+  }
+  ul {
+    margin: 0;
+    padding: 0 0 0 20px;
+  }
+}
+
+/* --- */
+/* end flash msg */
+
+/* register trip map */
+
+#map-canvas {
+  height: 300px;
+  margin-top: 5px;
+}
+
+.trip-via-remove {
+  text-align: right;
+}
+
+h3 .required {
+  font-size: 10px;
+  padding-left: 5px;
+}
+
+.user-main-content table caption {
+  font-weight: bolder;
+}
+
+.row.pod-row {
+  display: none;
+}
+
+/*RegCargo page. Add more cargo btn*/
+
+.link-holder.more-cargo-type {
+  text-align: right;
+}
+
+#destination-from, #destination-to, input.transit-via-input {
+  padding: 0 11px 0 13px;
+  width: 400px;
+  font-size: 15px;
+  font-weight: 300;
+  text-overflow: ellipsis;
+}
+
+#destination-from:focus, #destination-to:focus, input.transit-via-input:focus {
+  border-color: #4d90fe;
+  margin-left: -1px;
+  padding-left: 14px;
+  /* Regular padding-left + 1. */
+  width: 401px;
+}
+
+.frig-holder .radio-holder {
+  margin: 2px 20px 0 0;
+}
+
+/*
+.row .radio-frame {
+    margin-left: 10px;
+}*/
+
+.notes-text {
+  width: 500px;
+}
+
+.empty-msg-base {
+  font-size: 1.2em;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.page-back-link {
+  /*margin-bottom: 20px !important;*/
+  margin-bottom: 10px !important;
+}
+
+.credit-card-info {
+  span {
+    font-weight: bold;
+  }
+  img {
+    margin-right: 10px;
+  }
+}
+
+.new-user-area-country {
+  width: 160px;
+}
+
+/*.del-ico-row .del-ico-link {
+    margin-left: -10px;
+}*/
+
+.del-ico-row div:first-child {
+  margin-bottom: 8px;
+}
+
+.active-orders-table {
+  td:first-child {
+    background: #94FF94;
+  }
+  .urgent-tr-row td:first-child {
+    background: #FF7B59;
+  }
+}
+
+/*.active-orders-table tr td {
+    padding: 10px 0!important;
+}*/
+
+.click-row-table tbody tr:hover {
+  cursor: pointer;
+}
+
+.clear {
+  /*overflow: hidden;*/
+  clear: both;
+}

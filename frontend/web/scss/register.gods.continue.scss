@@ -1,0 +1,124 @@
+@import "layouts/application";
+
+.hide-field {
+  position: relative;
+}
+
+.following-info {
+  padding: 15px;
+  background: #CDF3FF;
+  margin: 0 0 15px;
+}
+
+.following-item {
+  float: left;
+  width: 210px;
+  margin: 0 5px 0 0;
+}
+
+.following-text {
+  margin: 0 15px 0 0;
+}
+
+.form-row {
+  margin: 0 0 22px;
+}
+
+.add-register-form {
+  .row > label {
+    /*width:130px;*/
+    width: 132px;
+    margin: 0 10px 0 5px;
+  }
+  .small-text {
+    margin: 0 5px 0 0;
+  }
+}
+
+.long-text {
+  width: 333px;
+}
+
+.contact-row {
+  float: left;
+  width: 345px;
+}
+
+.add-register-form .contact-row label {
+  /*width:95px;*/
+  width: 98px;
+  margin: 0 5px 0 0;
+}
+
+.contact-row .text {
+  /*width:233px;*/
+  width: 230px;
+}
+
+.payment-info {
+  float: left;
+}
+
+.pay-row {
+  overflow: hidden;
+  border: 1px solid #c0c0c0;
+  border-width: 1px 0;
+  padding: 10px 0;
+}
+
+.payment-card-list {
+  padding: 26px 0 0;
+  margin: 0;
+  list-style: none;
+  float: right;
+  text-align: center;
+  width: 160px;
+  li {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px 10px;
+  }
+  img {
+    display: block;
+  }
+}
+
+.submit-holder .btn-list {
+  overflow: hidden;
+  li {
+    display: block;
+    margin: 0;
+  }
+  .more-link {
+    float: left;
+  }
+  .submit {
+    float: right;
+  }
+}
+
+.row-hide-holder {
+  overflow: hidden;
+  label, .hide-field, .text {
+    float: left;
+  }
+}
+
+.price-following-info {
+  p {
+    overflow: hidden;
+  }
+  .folowing-item {
+    min-width: 420px;
+  }
+  .following-text {
+    margin: 0 0 0 20px;
+    float: right;
+  }
+}
+
+.total-row {
+  /*padding:10px 0 0;*/
+  /*border-top:1px dashed #fff;*/
+  font-weight: bold;
+}

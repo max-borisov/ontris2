@@ -1,0 +1,126 @@
+@import "layouts/application";
+
+.stamdata-top-box {
+  label {
+    /*width:121px;*/
+    width: 135px;
+  }
+  .text {
+    width: 370px;
+  }
+  .add-row {
+    .text {
+      width: 252px;
+    }
+    .small-text {
+      width: 99px;
+      margin: 0 10px 0 0;
+    }
+  }
+}
+
+.stamdata-form {
+  .radio-box {
+    margin: 11px 0 0 121px;
+    width: 426px;
+    .row {
+      &:first-child {
+        margin: 0;
+      }
+      > label {
+        width: 325px;
+        margin: 0;
+      }
+    }
+  }
+  .text-mark-holder {
+    margin: 0 0 0 121px;
+  }
+  .add-text-mark {
+    margin-top: 12px;
+  }
+  .add-bottom-row label, .add-middle-row label {
+    width: 285px;
+  }
+}
+
+.stamdata-bottom-box {
+  padding: 20px 0 0;
+  strong {
+    font-weight: normal;
+    display: block;
+    margin: 0 0 5px;
+  }
+}
+
+.stamdata-box-holder {
+  padding: 18px 9px 8px 0;
+  position: relative;
+  .text {
+    width: 281px;
+  }
+  .row > label {
+    width: 125px;
+  }
+  .select-area {
+    width: 284px !important;
+  }
+  .add-row .text {
+    float: left;
+    width: 30px;
+    margin: 0 7px 0 0;
+  }
+}
+
+.stamdata-form .submit {
+  width: 136px;
+}
+
+.stamdata-box-holder .text-holder label {
+  margin: 0 22px 0 0;
+}
+
+.slet-link {
+  float: left;
+  margin: 10px 0 0 15px;
+  color: #e30613;
+  padding: 0 15px;
+  font-size: 11px;
+  line-height: 18px;
+  border: 1px solid #dcdada;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -o-border-radius: 6px;
+  background: #fff;
+  position: relative;
+  behavior: url($PIE-file);
+}
+
+.bdata-view-content .border-divider {
+  margin-bottom: 0;
+  line-height: 1px !important;
+}
+
+/* basic data view style */
+
+.view-row span:first-child {
+  min-width: 121px;
+  margin: 0 7px 0 0;
+}
+
+.left-margin-row {
+  margin: 8px 0 0 121px;
+  span:first-child {
+    min-width: 285px;
+  }
+}
+
+/* end basic data view style */
+
+.form-delete-account textarea {
+  width: 500px;
+  max-width: 650px;
+  height: 120px;
+  margin-bottom: 10px;
+}

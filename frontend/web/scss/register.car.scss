@@ -1,0 +1,92 @@
+@import "layouts/application";
+
+.register-car-content form {
+  overflow: hidden;
+}
+
+.left-column {
+  float: left;
+  width: 320px;
+  margin: 0 25px 0 0;
+  .text {
+    width: 130px;
+  }
+  .row > label {
+    /*min-width:94px;*/
+    min-width: 100px;
+    margin: 0 5px 0 0;
+  }
+}
+
+.degrees-row {
+  padding: 0 0 0 95px;
+}
+
+.right-column {
+  float: right;
+  width: 290px;
+  .row > label {
+    min-width: 140px;
+    margin: 0 5px 0 0;
+  }
+}
+
+.column-holder {
+  overflow: hidden;
+  margin: 0 0 15px;
+}
+
+/*.register-car-content thead tr th:first-child {width:150px;}*/
+
+.register-car-content {
+  .col1 {
+    width: 143px;
+  }
+  .col2 {
+    width: 84px;
+  }
+  .col3 {
+    width: 59px;
+  }
+  .col4 {
+    width: 170px;
+  }
+  .border-divider {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+  }
+  table {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    th {
+      text-align: center;
+    }
+    td {
+      font-size: 14px;
+    }
+  }
+}
+
+.checkbox-row label {
+  line-height: 16px;
+}
+
+.degrees-row .radio-frame label {
+  margin: 0 0 0 4px;
+}
+
+.right-column .row span {
+  line-height: 20px;
+  margin: 0 0 0 4px;
+}
+
+.register-car-content {
+  .submit {
+    margin: 0 0 0 4px;
+  }
+  .hide-holder {
+    margin: 8px 0 0;
+  }
+}

@@ -1,0 +1,73 @@
+@import "layouts/application";
+
+.register-trip-content {
+  .row > label {
+    width: 182px;
+    margin: 0 5px 0 0;
+  }
+  .border-divider {
+    width: 100%;
+  }
+}
+
+.small-text {
+  margin: 0 5px 0 0;
+}
+
+.long-text {
+  width: 333px;
+}
+
+.register-trip-content .row > .add-label {
+  width: auto;
+  margin: 0 5px 0 8px;
+}
+
+.link-row {
+  text-align: right;
+}
+
+.register-trip-content span {
+  line-height: 21px;
+}
+
+.transit-via-box {
+  position: relative;
+  padding: 0 0 15px;
+  border-bottom: 1px solid #c0c0c0;
+  margin: 0 0 15px;
+  .del-ico-link {
+    right: 0;
+    top: 4px;
+    position: absolute;
+  }
+}
+
+.register-text {
+  float: left;
+  margin: 0 25px 0 0;
+}
+
+.register-trip-content .border-divider {
+  margin-bottom: 0;
+  line-height: 1px !important;
+}
+
+.trip-distance-holder {
+  text-align: right;
+  margin: 0;
+  padding: 0;
+}
+
+/* registr trip view style */
+
+.view-row > div {
+  min-width: 180px;
+  margin: 0 7px 0 0;
+}
+
+/* end registr trip view style */
+
+.select-order {
+  padding-bottom: 20px;
+}

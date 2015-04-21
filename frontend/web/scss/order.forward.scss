@@ -1,0 +1,40 @@
+@import "layouts/application";
+
+.link-holder {
+  overflow: hidden;
+  margin: 0 0 20px;
+  .more-link {
+    float: right;
+  }
+}
+
+.border-divider {
+  width: 100%;
+}
+
+.submit {
+  float: right;
+}
+
+.check-row-text {
+  float: left;
+  /*min-width:200px;*/
+  min-width: 150px;
+  margin: 0 10px 0 0;
+}
+
+.checkbox-holder {
+  overflow: hidden;
+}
+
+.checkbox {
+  margin-top: 1px;
+}
+
+label {
+  line-height: normal;
+}
+
+.forward-order-form .radio {
+  margin: 0 5px;
+}

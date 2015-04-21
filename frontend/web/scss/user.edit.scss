@@ -1,0 +1,43 @@
+@import "layouts/application";
+
+.user-redaction-form {
+  .radio-box label {
+    line-height: 16px;
+  }
+  table th {
+    font-weight: normal;
+    min-width: 115px;
+    font-size: 14px;
+  }
+  .col1 {
+    width: 110px;
+  }
+  table {
+    .col-auto-width {
+      min-width: 20px !important;
+    }
+    tr th:first-child {
+      min-width: 108px;
+    }
+    .radio-holder label {
+      margin: 0 4px 0 0;
+    }
+    margin: 0 0 10px;
+  }
+  .submit-row {
+    padding: 10px 0 0;
+    .submit {
+      margin: 0 0 0 4px;
+    }
+  }
+  .table-heading {
+    margin: 0 0 10px;
+  }
+  .row > label {
+    min-width: 130px;
+    margin: 0 5px 0 0;
+  }
+  .update-password-block .row > label {
+    min-width: 170px;
+  }
+}

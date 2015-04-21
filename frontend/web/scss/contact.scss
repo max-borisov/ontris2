@@ -1,0 +1,60 @@
+@import "layouts/application";
+
+.contact-holder {
+  overflow: hidden;
+}
+
+.contact-text {
+  float: left;
+}
+
+.photo-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  float: right;
+  li {
+    text-align: center;
+    float: left;
+    margin: 0 0 0 20px;
+    &:first-child {
+      margin: 0;
+    }
+  }
+  a {
+    color: #282523;
+    text-decoration: none;
+  }
+  img {
+    display: block;
+  }
+  a:hover span {
+    text-decoration: underline;
+  }
+}
+
+.contact-text {
+  address {
+    font-style: normal;
+    margin: 0 0 13px;
+  }
+  dl {
+    margin: 0 0 13px;
+    overflow: hidden;
+  }
+  dd {
+    margin: 0;
+    float: left;
+  }
+}
+
+* + html .contact-text dd {
+  float: none;
+}
+
+.contact-text dt {
+  float: left;
+  clear: both;
+  margin: 0 4px 0 0;
+  white-space: nowrap;
+}

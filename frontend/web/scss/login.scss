@@ -1,0 +1,84 @@
+@import "layouts/application";
+
+.login-column {
+  width: 345px;
+  float: left;
+  input {
+    &.text, &.password {
+      width: 220px;
+    }
+  }
+  label {
+    float: left;
+    width: 105px;
+  }
+  .add-row label {
+    width: auto;
+    line-height: 16px;
+  }
+}
+
+.remove-text {
+  float: left;
+  font-size: 11px;
+  margin: 0 0 0 21px;
+}
+
+.login-column .add-row {
+  padding: 0 0 0 80px;
+}
+
+.add-row .submit {
+  float: left;
+}
+
+.login-column .add-row a {
+  float: left;
+  margin: 0 0 15px;
+}
+
+.signup-column {
+  float: right;
+  width: 248px;
+}
+
+.column-heading {
+  display: block;
+  margin: 0 0 15px;
+}
+
+.signup-column {
+  .column-heading {
+    margin: 0 0 25px;
+  }
+  .more-link {
+    float: none;
+    margin: 0 0 15px 20px;
+    display: inline-block;
+  }
+}
+
+* + html .signup-column .more-link {
+  display: inline;
+}
+
+.signup-column .bullet-list {
+  margin: 0 0 0 20px;
+}
+
+.request-password-content {
+  .login-column {
+    width: 395px;
+  }
+  .add-row {
+    padding-top: 20px;
+  }
+}
+
+/*.sign-in-page .row input.text {
+    */
+
+/*width: 250px; */
+
+                        /*
+}*/

@@ -1,0 +1,81 @@
+@import "layouts/application";
+
+.content-previously-register {
+  table {
+    padding: 15px 0 0;
+    width: 100%;
+    text-align: center;
+    td, th {
+      padding: 5px 10px;
+      text-align: center;
+    }
+  }
+  .col-num {
+    width: 10px;
+  }
+  .col1 {
+    width: 90px;
+  }
+  .col2 {
+    width: 55px;
+  }
+  .col3 {
+    width: 45px;
+  }
+  .col4 {
+    width: 50px;
+  }
+  .col5 {
+    width: 75px;
+  }
+  .col6 {
+    width: 130px;
+  }
+  .col7 {
+    width: 60px;
+  }
+  .col8 {
+    width: 70px;
+  }
+  .border-divider {
+    width: 100%;
+  }
+  .search-form {
+    overflow: hidden;
+    label {
+      float: none;
+      display: block;
+      font-weight: bold;
+      font-size: 11px;
+      line-height: 16px;
+    }
+  }
+}
+
+/*.content-previously-register .red-ico-link {margin:0 10px 0 0;}*/
+
+.search-form fieldset > span {
+  float: left;
+  min-width: 60px;
+  margin: 19px 0 0;
+}
+
+.content-previously-register {
+  .text-holder {
+    margin: 0 0 0 5px;
+  }
+  .text-frame {
+    float: left;
+    margin: 0 105px 0 0;
+  }
+}
+
+.select-holder {
+  float: left;
+}
+
+.search-form .submit {
+  width: auto;
+  padding: 0 10px;
+  margin: 13px 0 0;
+}

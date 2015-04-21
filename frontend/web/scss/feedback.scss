@@ -1,0 +1,44 @@
+@import "layouts/application";
+
+.feedback-form .border-divider {
+  width: 100%;
+}
+
+.head-row {
+  padding: 0 0 3px 130px;
+  span {
+    float: left;
+    margin: 0 0 0 30px;
+    &:first-child {
+      margin: 0;
+    }
+  }
+}
+
+.feedback-form {
+  label {
+    width: 120px;
+    margin: 0 5px 0 0;
+  }
+  .add-row label {
+    float: none;
+    display: block;
+    width: auto;
+  }
+  textarea {
+    max-width: 655px !important;
+    width: 450px;
+  }
+  .radio-holder .radio {
+    margin: 0 0 0 38px;
+    &:first-child {
+      margin: 0;
+    }
+  }
+  .row {
+    margin-top: 0;
+  }
+  .add-row {
+    margin-top: 8px;
+  }
+}
