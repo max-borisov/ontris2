@@ -1,0 +1,8 @@
+body { -webkit-text-size-adjust: 100%; }
+
+input[type=submit], input[type=text], input[type=password], input[type=file] { -webkit-appearance: none; }
+
+textarea { -webkit-appearance: none; -webkit-border-radius: 0; }
+
+input[type=submit], input[type=text] { -webkit-border-radius: 0; }
+input[type="image"] { padding: 0; border: none; }

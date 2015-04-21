@@ -1,0 +1,21 @@
+* { color: #000; background: #fff; }
+
+body { margin: 0; font: 14pt Georgia, 'Times New Roman', Times, serif; }
+
+.main-holder, .main-frame { background: none; margin: 0; padding: 0; }
+
+#main, #wrapper, .main-holder, .main-frame, #content, .header-holder { width: 100%; }
+
+#content { padding: 0; }
+
+.log-info-section, .header-holder, #main { background: none; }
+
+#header { background: none; border: none; }
+
+.print-screen { display: block; }
+
+.print-hidden, #aside, .aside-box .nav-holder, .logo, .log-info-section, .footer-logo, .ico-section, .footer-link-list, .mobile-link-list, .top-nav { display: none; }
+
+#footer { box-shadow: 0 0 0 #000; -webkit-box-shadow: 0 0 0 #000; -moz-box-shadow: 0 0 0 #000; border-radius: 0; -moz-border-radius: 0; -webkit-border-radius: 0; font-size: 13pt; background: none; }
+
+.pod-recipient-form { display: none; }
