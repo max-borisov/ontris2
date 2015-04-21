@@ -12,10 +12,17 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'urlManager' => require(__DIR__ . '/routes.php'),
         'user' => [
+            'identityClass' => 'frontend\models\User',
+            'enableAutoLogin' => true,
+            'loginUrl' => ['signin/index'],
+            'returnUrl' => '/',
+        ],
+        /*'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
-        ],
+        ],*/
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -27,6 +34,19 @@ return [
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
+        ],
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@frontend/messages',
+                    'sourceLanguage' => 'en',
+                    'fileMap' => [
+//                        'app' => 'app.php',
+//                        'app/common' => 'app-common.php',
+                    ],
+                ],
+            ],
         ],
     ],
     'params' => $params,
