@@ -16,17 +16,6 @@ div.flash-error { padding: .8em; margin-bottom: 1em; background: #FBE3E4; color:
 div.flash-info { padding: .8em; margin-bottom: 1em; background: #d9edf7; color: #264409; border: 2px solid #8bb8ca; }
 
 /* end error msg */
-/* flash msg */
-/*div.form-box .errorSummary,
-fieldset .errorSummary
-{ border: 2px solid #C00; padding: 7px 7px 12px 7px; margin: 0 0 20px 0; background: #FEE; font-size: 0.9em;
-}
-div.form-box .errorSummary p,
-fieldset .errorSummary p{ margin: 0; padding: 5px;
-}
-div.form-box .errorSummary ul,
-fieldset .errorSummary ul{ margin: 0; padding: 0 0 0 20px;
-}*/
 /* --- */
 .errorSummary { border: 2px solid #C00; padding: 7px 7px 12px 7px; margin: 0 0 20px 0; background: #FEE; font-size: 0.9em; }
 .errorSummary p { margin: 0; padding: 5px; }
@@ -80,3 +69,5 @@ h3 .required { font-size: 10px; padding-left: 5px; }
 .click-row-table tbody tr:hover { cursor: pointer; }
 
 .clear { /*overflow: hidden;*/ clear: both; }
+
+/*# sourceMappingURL=up.css.map */

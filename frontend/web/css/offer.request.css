@@ -1,7 +1,6 @@
 header, footer, article, section, hgroup, nav, figure, aside { display: block; }
 
 @font-face { font-family: "Kalinga"; src: url("../fonts/kalinga.eot"); src: url("../fonts/kalinga.eot?#iefix") format("embedded-opentype"), url("../fonts/kalinga.svg#Kalinga") format("svg"), url("../fonts/kalinga.woff") format("woff"), url("../fonts/kalinga.ttf") format("truetype"); font-weight: normal; font-style: normal; }
-
 body { font: 14px Arial, Helvetica, sans-serif; line-height: 1.2; margin: 0; background: #e2e2e2; color: #404040; min-width: 950px; }
 
 *:focus { outline: none; }
@@ -410,13 +409,13 @@ table tbody tr:hover { background: #f48b07; color: #fff; }
 .display-none { display: none; }
 
 /* error msg */
-div.form-box span.required, fieldset span.required { color: red; }
+/*div.form-box span.required, fieldset span.required { color: red;
+}*/
+/*div.form-box label.error, fieldset label.error, div.form-box span.error, fieldset span.error { color: #C00;
+}*/
+div .has-error label { color: #C00; }
+div .has-error .text, div .has-error .password { border-color: #F00; }
 
-div.form-box label.error, fieldset label.error, div.form-box span.error, fieldset span.error { color: #C00; }
-
-/*div.form-box div.error input,
-div.form div.error textarea,
-div.form div.error select,*/
 div.form-box .select-error, div.form-box input.error, div.form-box textarea.error, div.form-box select.error { background: #FEE; border-color: #C00; }
 div.flash-success { padding: .8em; margin-bottom: 1em; border: 2px solid #ddd; background: #E6EFC2; color: #264409; border-color: #C6D880; }
 div.flash-error { padding: .8em; margin-bottom: 1em; background: #FBE3E4; color: #8a1f11; border: 2px solid #FBC2C4; }
@@ -424,20 +423,10 @@ div.flash-info { padding: .8em; margin-bottom: 1em; background: #d9edf7; color: 
 
 /* end error msg */
 /* flash msg */
-/*div.form-box .errorSummary,
-fieldset .errorSummary
-{ border: 2px solid #C00; padding: 7px 7px 12px 7px; margin: 0 0 20px 0; background: #FEE; font-size: 0.9em;
-}
-div.form-box .errorSummary p,
-fieldset .errorSummary p{ margin: 0; padding: 5px;
-}
-div.form-box .errorSummary ul,
-fieldset .errorSummary ul{ margin: 0; padding: 0 0 0 20px;
-}*/
 /* --- */
-.errorSummary { border: 2px solid #C00; padding: 7px 7px 12px 7px; margin: 0 0 20px 0; background: #FEE; font-size: 0.9em; }
-.errorSummary p { margin: 0; padding: 5px; }
-.errorSummary ul { margin: 0; padding: 0 0 0 20px; }
+.error-summary { border: 2px solid #C00; padding: 7px 7px 12px 7px; margin: 0 0 20px 0; background: #FEE; font-size: 0.9em; }
+.error-summary p { margin: 0; padding: 5px; }
+.error-summary ul { margin: 0; padding: 0 0 0 20px; }
 
 /* --- */
 /* end flash msg */
@@ -487,3 +476,5 @@ h3 .required { font-size: 10px; padding-left: 5px; }
 .click-row-table tbody tr:hover { cursor: pointer; }
 
 .clear { /*overflow: hidden;*/ clear: both; }
+
+/*# sourceMappingURL=offer.request.css.map */
