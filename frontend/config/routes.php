@@ -6,6 +6,6 @@ return [
     'rules' => [
         '/site' => 'site/index',
         '/sandbox' => 'sandbox/index',
-        '/sign-in' => 'signin/index',
+        '/sign-in' => 'session/login',
     ],
 ];

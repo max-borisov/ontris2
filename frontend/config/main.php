@@ -14,15 +14,11 @@ return [
     'components' => [
         'urlManager' => require(__DIR__ . '/routes.php'),
         'user' => [
-            'identityClass' => 'frontend\models\User',
-            'enableAutoLogin' => true,
-            'loginUrl' => ['signin/index'],
-            'returnUrl' => '/',
-        ],
-        /*'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
-        ],*/
+            'loginUrl' => ['session/login'],
+            'returnUrl' => '/',
+        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [

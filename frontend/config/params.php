@@ -9,4 +9,6 @@ return [
     'contactPhone' => '+00 0000 000',
     'CVR' => '000000000',
     'contactEmail' => 'info@ontris-site.dk',
+    'supportEmail' => 'support@ontris-site.dk',
+    'rememberMeDuration' => 3600 * 24 * 30,
 ];
