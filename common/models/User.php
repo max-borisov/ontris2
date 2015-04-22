@@ -1,37 +1,47 @@
 <?php
+
 namespace common\models;
 
 use Yii;
-use yii\base\NotSupportedException;
-use yii\behaviors\TimestampBehavior;
-use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
+use yii\behaviors\TimestampBehavior;
+use frontend\models\ActiveRecord;
 
 /**
- * User model
+ * This is the model class for table "user".
  *
  * @property integer $id
+ * @property integer $country_id
  * @property string $username
+ * @property integer $type_id
+ * @property integer $bd_id
+ * @property integer $inviter_id
+ * @property string $phone
+ * @property integer $is_company_admin
+ * @property integer $is_site_admin
+ * @property string $invite_msg
+ * @property integer $login_at
+ * @property integer $activated_at
+ * @property string $auth_key
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
- * @property string $auth_key
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
- * @property string $password write-only password
  */
 class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
-    const STATUS_ACTIVE = 10;
+    const STATUS_ACTIVE = 1;
+    const STATUS_NOT_ACTIVE = 2;
 
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return '{{%user}}';
+        return 'user';
     }
 
     /**
@@ -50,8 +60,12 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED, self::STATUS_NOT_ACTIVE]],
+
+            /*[['country_id', 'username', 'type_id', 'bd_id', 'inviter_id', 'phone', 'is_company_admin', 'is_site_admin', 'invite_msg', 'login_at', 'activated_at', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
+            [['country_id', 'type_id', 'bd_id', 'inviter_id', 'is_company_admin', 'is_site_admin', 'login_at', 'activated_at', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['username', 'phone', 'invite_msg', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
+            [['auth_key'], 'string', 'max' => 32]*/
         ];
     }
 
@@ -68,53 +82,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
-    }
-
-    /**
-     * Finds user by username
-     *
-     * @param string $username
-     * @return static|null
-     */
-    public static function findByUsername($username)
-    {
-        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
-    }
-
-    /**
-     * Finds user by password reset token
-     *
-     * @param string $token password reset token
-     * @return static|null
-     */
-    public static function findByPasswordResetToken($token)
-    {
-        if (!static::isPasswordResetTokenValid($token)) {
-            return null;
-        }
-
-        return static::findOne([
-            'password_reset_token' => $token,
-            'status' => self::STATUS_ACTIVE,
-        ]);
-    }
-
-    /**
-     * Finds out if password reset token is valid
-     *
-     * @param string $token password reset token
-     * @return boolean
-     */
-    public static function isPasswordResetTokenValid($token)
-    {
-        if (empty($token)) {
-            return false;
-        }
-        $expire = Yii::$app->params['user.passwordResetTokenExpire'];
-        $parts = explode('_', $token);
-        $timestamp = (int) end($parts);
-        return $timestamp + $expire >= time();
+        return static::findOne(['access_token' => $token]);
     }
 
     /**
@@ -142,6 +110,17 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
+     * Finds user by email
+     *
+     * @param string $email
+     * @return static|null
+     */
+    public static function findByEmail($email)
+    {
+        return static::findOne(['email' => $email]);
+    }
+
+    /**
      * Validates password
      *
      * @param string $password password to validate
@@ -153,36 +132,30 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Generates password hash from password and sets it to the model
-     *
-     * @param string $password
+     * @inheritdoc
      */
-    public function setPassword($password)
+    public function attributeLabels()
     {
-        $this->password_hash = Yii::$app->security->generatePasswordHash($password);
-    }
-
-    /**
-     * Generates "remember me" authentication key
-     */
-    public function generateAuthKey()
-    {
-        $this->auth_key = Yii::$app->security->generateRandomString();
-    }
-
-    /**
-     * Generates new password reset token
-     */
-    public function generatePasswordResetToken()
-    {
-        $this->password_reset_token = Yii::$app->security->generateRandomString() . '_' . time();
-    }
-
-    /**
-     * Removes password reset token
-     */
-    public function removePasswordResetToken()
-    {
-        $this->password_reset_token = null;
+        return [
+            'id' => 'ID',
+            'country_id' => 'Country ID',
+            'username' => 'Username',
+            'type_id' => 'Type ID',
+            'bd_id' => 'Bd ID',
+            'inviter_id' => 'Inviter ID',
+            'phone' => 'Phone',
+            'is_company_admin' => 'Is Company Admin',
+            'is_site_admin' => 'Is Site Admin',
+            'invite_msg' => 'Invite Msg',
+            'login_at' => 'Login At',
+            'activated_at' => 'Activated At',
+            'auth_key' => 'Auth Key',
+            'password_hash' => 'Password Hash',
+            'password_reset_token' => 'Password Reset Token',
+            'email' => 'Email',
+            'status' => 'Status',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
+        ];
     }
 }

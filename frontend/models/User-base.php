@@ -17,7 +17,7 @@ use yii\base\Exception;
  * @property integer $created_at
  * @property integer $updated_at
  */
-class User extends ActiveRecord implements \yii\web\IdentityInterface
+class User_base extends ActiveRecord implements \yii\web\IdentityInterface
 {
     public $username = '';
 
