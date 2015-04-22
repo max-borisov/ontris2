@@ -17,7 +17,7 @@ class SigninController extends AppController
     // @todo Add REST support
     public function actionIndex()
     {
-        $request = Yii::$app->request;
+        /*$request = Yii::$app->request;
 
         if ($request->isPost
             && $model->load($request->post())
@@ -27,7 +27,7 @@ class SigninController extends AppController
             $user->name = $model->name;
             $user->email = $model->email;
             $user->password = Yii::$app->security->generatePasswordHash($model->password);
-            $user->confirmation_hash = HelperUser::getHash();
+            $user->confirmation_hash = HelperUser::getHash();*/
 
 
 

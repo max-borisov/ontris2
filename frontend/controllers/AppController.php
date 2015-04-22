@@ -7,6 +7,9 @@ class AppController extends Controller
 {
     public $layout = 'login-no';
 
+    /**
+     * @inheritdoc
+     */
     public function actions()
     {
         return [
