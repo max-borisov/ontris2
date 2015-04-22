@@ -8,17 +8,20 @@
 
 /* error msg */
 
-div.form-box span.required, fieldset span.required {
+/*div.form-box span.required, fieldset span.required {
   color: red;
-}
+}*/
 
-div.form-box label.error, fieldset label.error, div.form-box span.error, fieldset span.error {
+/*div.form-box label.error, fieldset label.error, div.form-box span.error, fieldset span.error {
   color: #C00;
-}
+}*/
 
-/*div.form-box div.error input,
-div.form div.error textarea,
-div.form div.error select,*/
+div {
+  .has-error {
+    label { color: #C00 }
+    .text, .password { border-color: #F00 }
+  }
+}
 
 div {
   &.form-box {
@@ -54,29 +57,10 @@ div {
 /* end error msg */
 
 /* flash msg */
-/*div.form-box .errorSummary,
-fieldset .errorSummary
-{
-    border: 2px solid #C00;
-    padding: 7px 7px 12px 7px;
-    margin: 0 0 20px 0;
-    background: #FEE;
-    font-size: 0.9em;
-}
-div.form-box .errorSummary p,
-fieldset .errorSummary p{
-    margin: 0;
-    padding: 5px;
-}
-div.form-box .errorSummary ul,
-fieldset .errorSummary ul{
-    margin: 0;
-    padding: 0 0 0 20px;
-}*/
 
 /* --- */
 
-.errorSummary {
+.error-summary {
   border: 2px solid #C00;
   padding: 7px 7px 12px 7px;
   margin: 0 0 20px 0;
