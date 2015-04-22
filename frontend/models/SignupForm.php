@@ -1,9 +1,9 @@
 <?php
 namespace frontend\models;
 
+use Yii;
 use common\models\User;
 use yii\base\Model;
-use Yii;
 
 /**
  * Signup form
@@ -20,18 +20,25 @@ class SignupForm extends Model
     public function rules()
     {
         return [
+            ['country_id', 'required'],
+            ['country_id', 'integer', 'integerOnly' => true],
+
+            ['type_id', 'required'],
+            ['type_id', 'integer', 'integerOnly' => true],
+
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
+//            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
+
+            ['password', 'required'],
+            ['password', 'string', 'min' => 6],
+            ['password', 'compare', 'compareAttribute' => 'password_confirmation'],
 
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
-
-            ['password', 'required'],
-            ['password', 'string', 'min' => 6],
         ];
     }
 

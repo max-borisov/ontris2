@@ -10,6 +10,7 @@ use frontend\models\LoginForm;
  */
 class SessionController extends AppController
 {
+    // @todo Add action filter(login)
     public function actionIndex()
     {
         return $this->render('index');
@@ -33,5 +34,10 @@ class SessionController extends AppController
                 'model' => $model,
             ]);
         }
+    }
+
+    public function actionSignup()
+    {
+        return $this->render('signup');
     }
 }
