@@ -2,6 +2,10 @@
 
 namespace frontend\models;
 
+use yii\db\Query;
+use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
+
 /**
  * This is the model class for table "user_account_type".
  *
@@ -115,4 +119,13 @@ class UserAccountType extends ActiveRecord
         if (empty($data)) throw new CException("Could not get data with lang " . $lang);
         return CHtml::listData($data, 'id', 'title');
     }*/
+
+    public function getListBasedData() {
+        $data = (new Query)
+            ->select('id, title_en as title')
+            ->from(static::tableName())
+            ->orderBy('id ASC')
+            ->all();
+        return ArrayHelper::map($data, 'id', 'title');
+    }
 }

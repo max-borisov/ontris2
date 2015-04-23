@@ -7,9 +7,9 @@ use common\models\User;
 use frontend\components\HelperBase;
 
 /**
- * Login form
+ * LogIn form
  */
-class LoginForm extends Model
+class LogInForm extends Model
 {
     public $email;
     public $password;
@@ -77,7 +77,7 @@ class LoginForm extends Model
     }
 
     /**
-     * @return array customized attribute labels (name=>label)
+     * @inheritdoc
      */
     public function attributeLabels()
     {
