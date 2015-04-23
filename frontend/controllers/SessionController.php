@@ -7,6 +7,7 @@ use frontend\models\LogInForm;
 use frontend\models\SignUpForm;
 use frontend\models\UserAccountType;
 use frontend\models\CountryList;
+use frontend\models\UserReferrer;
 
 use frontend\components\Variable;
 
@@ -45,25 +46,24 @@ class SessionController extends AppController
     public function actionSignup()
     {
         $model = new SignUpForm();
-        /*if ($model->load(Yii::$app->request->post())) {
+        // Default country
+        $model->country_id = CountryList::DENMARK;
+        if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user)) {
                     return $this->goHome();
                 }
             }
-        }*/
-
-        // Get the list of possible user types (e.g. customer, transporter)
+        }
         $accountList = (new UserAccountType)->getListBasedData();
-        // List of options where from a user know about the site
-//        $uFromList = UserComeFrom::model()->getListBasedData($this->appLanguage);
+        $referrerList = (new UserReferrer)->getListBasedData();
         $countryList = (new CountryList)->getListBasedData();
-//        Variable::dump($countryList);
 
         return $this->render('signUp/view', [
             'model' => $model,
             'countryList' => $countryList,
             'accountList' => $accountList,
+            'referrerList' => $referrerList,
         ]);
     }
 }
