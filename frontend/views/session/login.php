@@ -62,7 +62,6 @@ $tCategory = 'sign-in';
                 <?= Html::submitButton(Yii::t($tCategory, 'form.btn.send'), ['class'=>'submit', 'name'=>'send']); ?>
             </div>
         </fieldset>
-        </form>
         <?php ActiveForm::end(); ?>
     </div>
     <?= SignUpAsideWidget::widget(); ?>
