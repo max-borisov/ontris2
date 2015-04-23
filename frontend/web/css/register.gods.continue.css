@@ -130,7 +130,7 @@ textarea { min-height: 80px; font-weight: normal; }
 
 .text-holder { float: left; }
 
-.submit { background: #F48B07; color: #fff; width: 205px; height: 25px; line-height: 25px; text-align: center; cursor: pointer; outline: 0 none; border: 0 none; float: right; behavior: url(/frontend/css/PIE.htc); border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+.submit { background: #F48B07; color: #fff; width: 205px; height: 25px; line-height: 25px; text-align: center; cursor: pointer; outline: 0 none; border: 0 none; behavior: url(/frontend/css/PIE.htc); border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
 
 .more-link { background: #F48B07; color: #fff; width: 205px; height: 25px; line-height: 25px; text-align: center; cursor: pointer; outline: 0 none; border: 0 none; float: right; behavior: url(/frontend/css/PIE.htc); border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
 .more-link:hover { text-decoration: none; }
@@ -414,7 +414,7 @@ table tbody tr:hover { background: #f48b07; color: #fff; }
 /*div.form-box label.error, fieldset label.error, div.form-box span.error, fieldset span.error { color: #C00;
 }*/
 div .has-error label { color: #C00; }
-div .has-error .text, div .has-error .pa { border-color: #F00; }
+div .has-error .text, div .has-error .password { border-color: #F00; }
 
 div.form-box .select-error, div.form-box input.error, div.form-box textarea.error, div.form-box select.error { background: #FEE; border-color: #C00; }
 div.flash-success { padding: .8em; margin-bottom: 1em; border: 2px solid #ddd; background: #E6EFC2; color: #264409; border-color: #C6D880; }

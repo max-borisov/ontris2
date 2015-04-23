@@ -130,7 +130,7 @@ textarea { min-height: 80px; font-weight: normal; }
 
 .text-holder { float: left; }
 
-.submit { background: #F48B07; color: #fff; width: 205px; height: 25px; line-height: 25px; text-align: center; cursor: pointer; outline: 0 none; border: 0 none; float: right; behavior: url(/frontend/css/PIE.htc); border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+.submit { background: #F48B07; color: #fff; width: 205px; height: 25px; line-height: 25px; text-align: center; cursor: pointer; outline: 0 none; border: 0 none; behavior: url(/frontend/css/PIE.htc); border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
 
 .more-link { background: #F48B07; color: #fff; width: 205px; height: 25px; line-height: 25px; text-align: center; cursor: pointer; outline: 0 none; border: 0 none; float: right; behavior: url(/frontend/css/PIE.htc); border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
 .more-link:hover { text-decoration: none; }
