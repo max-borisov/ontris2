@@ -4,9 +4,15 @@ use frontend\components\HelperBase;
 $support = HelperBase::getParam('supportEmail');
 return [
     'form.title' => 'Sign up',
-    'form.type.title' => 'Account type:',
-    'form.from.title' => 'How did you know about ONTRIS ?',
 	'form.create.account' => 'Create account',
+
+    'form.user.country' => 'Country:',
+    'form.user.account.type' => 'Account type:',
+    'form.user.referrer' => 'How did you know about ONTRIS ?',
+    'form.user.name' => 'Username:',
+    'form.user.email' => 'Email:',
+    'form.user.password' => 'Password:',
+    'form.user.password.repeat' => 'Repeat password:',
 
     'operation_success' => 'Your data have been saved and confirmation link was sent to your mail. <br /><br />In order to complete the operation, please check your email for further instructions.',
     'operation_failure' => "Unfortunately during registration some errors occurred. Please, try again later. <br /><br />We appreciate it if you inform our support team <a href='mailto:$support'>$support</a> about this problem.",

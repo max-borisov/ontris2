@@ -42,15 +42,10 @@ Intervallet er 10 minutter for en hastetransport og 30 minutter for en normal tr
     'link.basic.data' => 'Stamdata',
 
     'title.user.page' => 'Bruger',
-    'form.user.country' => 'Land:',
-    'form.user.full.name' => 'Fulde navn:',
-    'form.user.email' => 'E-mail:',
     'form.user.basic.data' => 'Firmanavn:',
     'form.user.update.pass.title' => 'Opdater adgangskode:',
     'form.user.password.current' => 'Nuværende adgangskode:',
     'form.user.password.new' => 'Ny adgangskode:',
-    'form.user.password' => 'Adgangskode:',
-	'form.user.password.confirm' => 'Bekræft password:',
     'user.password.forgot' => 'Glemt Password ?',
     'form.user.area' => 'Arbejdsområdet:',
 

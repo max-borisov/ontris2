@@ -42,15 +42,10 @@ The interval is 10 minutes for an accelerated transport and 30 minutes for norma
     'link.basic.data' => 'Basic data',
 
     'title.user.page' => 'User',
-    'form.user.country' => 'Country:',
-    'form.user.full.name' => 'Full Name:',
-    'form.user.email' => 'Email:',
     'form.user.basic.data' => 'Company:',
     'form.user.update.pass.title' => 'Update password:',
     'form.user.password.current' => 'Current password:',
     'form.user.password.new' => 'New password:',
-    'form.user.password' => 'Password:',
-    'form.user.password.confirm' => 'Confirm password:',
     'user.password.forgot' => 'Forgot Password ?',
     'form.user.area' => 'Working area:',
 

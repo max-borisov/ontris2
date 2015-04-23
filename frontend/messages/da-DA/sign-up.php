@@ -4,9 +4,16 @@ use frontend\components\HelperBase;
 $support = HelperBase::getParam('supportEmail');
 return [
     'form.title' => 'Tilmelding',
-    'form.type.title' => 'Kontotype:',
     'form.from.title' => 'Hvor har du hørt om ONTRIS ?',
     'form.create.account' => 'Opret konto',
+
+    'form.user.country' => 'Land:',
+    'form.user.account.type' => 'Kontotype:',
+    'form.user.referrer' => 'Hvor har du hørt om ONTRIS ?',
+    'form.user.name' => 'Brugernavn:',
+    'form.user.email' => 'Email:',
+    'form.user.password' => 'Adgangskode:',
+    'form.user.password.repeat' => 'Gentag password:',
 
     'operation_success' => 'Dine data er blevet gemt og bekræftelse link blev sendt til din mail. <br /><br />For at fuldføre handlingen, bedes du tjekke din e-mail for yderligere anvisninger.',
     'operation_failure' => "Desværre under registreringen nogle fejl opstod. Please, prøv igen senere. <br/><br/>Vi sætter pris på det, hvis du informerer vores supportteam <a href='mailto:$support'>$support</a> om dette problem.",
