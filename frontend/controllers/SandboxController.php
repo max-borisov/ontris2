@@ -5,6 +5,7 @@ use Yii;
 use yii\web\Controller;
 use frontend\components\Variable;
 use frontend\models\MailQueue;
+use frontend\components\HelperMandrill;
 
 class SandboxController extends Controller
 {
@@ -16,6 +17,12 @@ class SandboxController extends Controller
 
     public function actionQueue()
     {
+//        $str = 'test';
+//        Variable::dump(explode(',', $str));
+//        $mandrill = HelperMandrill::init();
+//        Variable::dump($mandrill);
+
+//        return false;
         $res = MailQueue::add([
             'to_email'  => 'matt.borisov@gmail.com',
             'to_name'   => 'Matt Borisov',
