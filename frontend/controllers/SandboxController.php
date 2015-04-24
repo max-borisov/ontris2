@@ -16,11 +16,14 @@ class SandboxController extends Controller
 
     public function actionQueue()
     {
-        $res = MailQueue::add(
-            'matt.borisov@gmail.com',
-            'Matt Borisov',
-            'Test subj',
-            'Hello boy', '<strong>Hello boy</strong>'
-        );
+        $res = MailQueue::add([
+            'to_email'  => 'matt.borisov@gmail.com',
+            'to_name'   => 'Matt Borisov',
+            'from_email'  => 'max.test@gmail.com',
+            'from_name'   => 'Max Test',
+            'subject'   => 'Test subj',
+            'message_plain' => 'Hello boy',
+            'message_html'  => '<strong>Hello boy</strong>',
+        ]);
     }
 }

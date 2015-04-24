@@ -36,6 +36,7 @@ class MailQueue extends ActiveRecord
     const STATUS_SUCCESS = 1;
     const PRIORITY_HIGH = 1;
     const PRIORITY_LOW = 10;
+    const MAX_ATTEMPTS = 3;
 
     /**
      * @inheritdoc
@@ -68,38 +69,58 @@ class MailQueue extends ActiveRecord
      * @return bool
      * @throws Exception
      */
-    public static function add($to_email, $to_name, $subj, $msg_plain, $msg_html, $tags = [], $priority = 0, $from_name = '', $from_email = '')
+//    public static function add($to_email, $to_name, $subj, $msg_plain, $msg_html, $tags = [], $priority = 0, $from_name = '', $from_email = '')
+
+    /**
+     * Add email to queue
+     *
+     * @param array $params Email params
+     * @return bool
+     * @throws Exception
+     */
+    public static function add($params = [])
     {
+        static::_validateParams($params);
         $queue = new self;
-        if ($from_name && $from_email) {
-            $queue->from_name = $from_name;
-            $queue->from_email = $from_email;
-        } else {
-            // Default params
-            $queue->from_email = HelperBase::getParam('fromEmail');
-            $queue->from_name = HelperBase::getParam('fromName');
-        }
-        $queue->to_email = $to_email;
-        $queue->to_name = $to_name;
-        $queue->subject = $subj;
-        $queue->message_plain = $msg_plain;
-        $queue->message_html = $msg_html;
-        if ($tags) {
+        $queue->max_attempts = static::MAX_ATTEMPTS;
+        $queue->from_name = !empty($params['from_name']) ? $params['from_name'] : HelperBase::getParam('fromName');
+        $queue->from_email = !empty($params['from_email']) ? $params['from_email'] : HelperBase::getParam('fromEmail');
+        $queue->to_email = $params['to_email'];
+        $queue->to_name = $params['to_name'];
+        $queue->subject = $params['subject'];
+        $queue->message_plain = $params['message_plain'];
+        $queue->message_html = $params['message_html'];
+        if (!empty($params['tags'])) {
             // Tags should be an array
-            if (!is_array($tags)) {
+            if (!is_array($params['tags'])) {
                 throw new Exception('Failed to add new mail to queue. Tags must be an array.');
             }
             // Convert tags array into string
-            $queue->tags = implode(',', $tags);
+            $queue->tags = implode(',', $params['tags']);
         }
         $queue->status = static::STATUS_PENDING;
-        $queue->priority = $priority || self::PRIORITY_LOW;
+        $queue->priority = !empty($params['priority']) ? $params['priority'] : self::PRIORITY_LOW;
         if (!$queue->save(false)) {
-            Yii::error("Failed to add new message to queue. Email: $to_email, name: $to_name", 'custom');
-            throw new Exception('Could not add new email to queue. Email ' . $to_email);
+            Yii::error("Failed to add new message to queue. Email: {$params['to_email']}, name: {$params['to_name']}", 'custom');
+            throw new Exception('Could not add new email to queue. Email ' . $params['to_email']);
         }
 
         return true;
+    }
+
+    private static function _validateParams($params = [])
+    {
+        if (empty($params)) {
+            throw new Exception('Mailing params must be set.');
+        }
+        if (empty($params['to_email'])
+            || empty($params['to_name'])
+            || empty($params['subject'])
+            || empty($params['message_plain'])
+            || empty($params['message_html'])
+        ) {
+            throw new Exception('Some required fields are missed.');
+        }
     }
 
     /**
