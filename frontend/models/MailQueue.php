@@ -25,15 +25,14 @@ use frontend\components\HelperBase;
  * @property string $mandrill_status
  * @property string $mandrill_reject_reason
  * @property string $mandrill_id
- * @property integer $ctime
- * @property integer $mtime
- * @property integer $atime
- * @property integer $stime
+ * @property integer $created_at
+ * @property integer $updated_at
+ * @property integer $sent_at
  */
 class MailQueue extends ActiveRecord
 {
     const STATUS_PENDING = 0;
-    const STATUS_SUCCESS = 1;
+    const STATUS_SENT = 1;
     const PRIORITY_HIGH = 1;
     const PRIORITY_LOW = 10;
     const MAX_ATTEMPTS = 3;
