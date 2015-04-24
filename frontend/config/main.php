@@ -23,8 +23,16 @@ return [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
+                    'class'   => 'yii\log\FileTarget',
+                    'levels'  => ['error', 'warning'],
+                    'logVars' => ['_GET', '_POST', '_SERVER'],
+                ],
+                [
+                    'class'      => 'yii\log\FileTarget',
+                    'levels'     => ['error', 'warning'],
+                    'categories' => ['custom'],
+                    'logVars'    => [null],
+                    'logFile'    => '@frontend/runtime/logs/custom.log',
                 ],
             ],
         ],

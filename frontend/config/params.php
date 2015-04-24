@@ -10,5 +10,7 @@ return [
     'CVR' => '000000000',
     'contactEmail' => 'info@ontris-site.dk',
     'supportEmail' => 'support@ontris-site.dk',
+    'fromEmail' => 'noreply@ontris-site.com',
+    'fromName' => 'ONTRIS',
     'rememberMeDuration' => 3600 * 24 * 30,
 ];
