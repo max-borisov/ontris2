@@ -10,7 +10,6 @@ use frontend\components\HelperMandrill;
 
 use frontend\components\Variable;
 
-// @todo Add comments
 class MailqueueController extends Controller
 {
     public function actionSend($priority = 'HIGH_PRIORITY')
@@ -22,6 +21,7 @@ class MailqueueController extends Controller
             return Controller::EXIT_CODE_NORMAL;
         }
         $mandrill = HelperMandrill::init();
+        $hasErrors = false;
         foreach($queue as $queueObject) {
             $message = $this->_createMessageObject($queueObject);
             try {
@@ -29,6 +29,7 @@ class MailqueueController extends Controller
                 $this->_saveResponse($response, $queueObject);
                 usleep(20000);
             } catch(\Mandrill_Error $e) {
+                $hasErrors = true;
                 Yii::error([
                     'class' => get_class($e),
                     'error' => $e->getMessage(),
@@ -37,9 +38,7 @@ class MailqueueController extends Controller
                 ], 'custom');
             }
         }
-        // @todo Show result messages
-        //
-//        $this->_displayFinishMessage($hasErrors);
+        $this->_displayFinishMessage($hasErrors);
     }
 
     private function _priorityToNumber($priority)
@@ -55,6 +54,12 @@ class MailqueueController extends Controller
         return $list[$priority];
     }
 
+    /**
+     * Get objects from queue
+     *
+     * @param $priority Email priority
+     * @return array|\yii\db\ActiveRecord[]
+     */
     private function _getQueueObjects($priority)
     {
         return MailQueue::find()
@@ -64,10 +69,13 @@ class MailqueueController extends Controller
             ])
             ->orderBy('created_at ASC')
             ->limit(1)
+//            ->limit()
             ->all();
     }
 
     /**
+     * Compile message object
+     *
      * @var $queueObject \frontend\models\MailQueue
      * @param $queueObject
      * @return array
@@ -97,10 +105,11 @@ class MailqueueController extends Controller
     }
 
     /**
+     * Save response from mandrill
      *
      * @var $queueObject \frontend\models\MailQueue
-     * @param $response
-     * @param $queueObject
+     * @param $response Response object
+     * @param $queueObject Email queue object to be send
      * @return bool
      */
     private function _saveResponse($response, &$queueObject)
@@ -120,6 +129,13 @@ class MailqueueController extends Controller
         }
 
         return true;
+    }
+
+    private function _displayFinishMessage($hasErrors)
+    {
+        $successMsg = "Operation OK\t\r\n";
+        $errorMsg = "Operation ERROR\r\n";
+        echo $hasErrors ? $errorMsg : $successMsg;
     }
 }
 ?>

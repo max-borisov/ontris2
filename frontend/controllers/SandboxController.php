@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use Yii;
+use yii\helpers\Html;
 use yii\web\Controller;
 use frontend\components\Variable;
 use frontend\models\MailQueue;
