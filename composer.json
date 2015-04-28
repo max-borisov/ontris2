@@ -17,7 +17,8 @@
         "php": ">=5.4.0",
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
-        "mandrill/mandrill": "dev-master"
+        "mandrill/mandrill": "dev-master",
+        "yiisoft/yii2-swiftmailer": "~2.0.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
