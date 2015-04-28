@@ -12,6 +12,6 @@ return [
     'email.hi' => 'Hi',
     'email.regards' => 'Best regards',
     'email.no.reply' => 'You can not reply to this email, as it is automatically generated.',
-    'email.get.in.touch' => 'Should you wish to get in touch with us, please write to {infoEmail} or call phone {infoPhone}.',
+    'email.get.in.touch' => 'Should you wish to get in touch with us, please write to <a href="mailto: {infoEmail}">{infoEmail}</a> or call phone {infoPhone}.',
     'email.order' => 'Order',
 ];

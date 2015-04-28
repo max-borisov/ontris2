@@ -12,6 +12,6 @@ return [
     'email.hi' => 'Hej',
     'email.regards' => 'Venlig hilsen',
     'email.no.reply' => 'Du kan ikke besvare denne mail, da den er autogenereret.',
-    'email.get.in.touch' => 'Skulle du ønske at komme i kontakt med os, kan du skrive til {infoEmail} eller ringe på tlf. {infoPhone}.',
+    'email.get.in.touch' => 'Skulle du ønske at komme i kontakt med os, kan du skrive til <a href="mailto: {infoEmail}">{infoEmail}</a> eller ringe på tlf. {infoPhone}.',
     'email.order' => 'Ordre',
 ];
