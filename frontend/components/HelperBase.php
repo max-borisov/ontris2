@@ -8,6 +8,15 @@ use yii\helpers\VarDumper;
 
 class HelperBase extends Component
 {
+    public static function getAppLang()
+    {
+        if (Yii::$app->language == 'en-US') {
+            return 'en';
+        } else {
+            return 'da';
+        }
+    }
+
     /**
      * Terminate app
      */
