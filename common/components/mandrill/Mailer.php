@@ -1,14 +1,13 @@
 <?php
-namespace frontend\components\mandrill;
+namespace common\components\mandrill;
 
 use Yii;
 use yii\mail\BaseMailer;
 use frontend\components\HelperMandrill;
-use frontend\components\Variable;
 
 class Mailer extends BaseMailer
 {
-    public $messageClass = 'frontend\components\mandrill\Message';
+    public $messageClass = 'common\components\mandrill\Message';
 
     private $_mandrill = null;
     private $_response = null;
@@ -18,23 +17,20 @@ class Mailer extends BaseMailer
         $this->_response = $response;
     }
 
+    public function getResponse()
+    {
+        return $this->_response;
+    }
+
     protected function sendMessage($message)
     {
-        echo 121245;
-//        Variable::dump($message);
         $mandrillMessage = $this->_createMessageObject($message);
-//        Variable::dump($mandrillMessage);
         $mandrill = $this->_getMandrill();
-//        $response = $mandrill->messages->send($mandrillMessage);
-//        Variable::dump($response);
-
         try {
             $response = $mandrill->messages->send($mandrillMessage);
             $this->setResponse($response);
-//            $this->_saveResponse($response, $queueObject);
-            usleep(20000);
+            usleep(2000);
         } catch(\Mandrill_Error $e) {
-//            $hasErrors = true;
             Yii::error([
                 'class' => get_class($e),
                 'error' => $e->getMessage(),
@@ -42,11 +38,6 @@ class Mailer extends BaseMailer
                 'to_name' => $message['to']['name'],
             ], 'custom');
         }
-    }
-
-    public function getResponse()
-    {
-        return $this->_response;
     }
 
     private function _getMandrill()
@@ -80,8 +71,8 @@ class Mailer extends BaseMailer
                 ]
             ],
         ];
-        if (!empty($message->tags)) {
-            $mandrillMessage['tags'] = explode(',', $message->getTags());
+        if (!empty($message->tags) && is_array($message->tags)) {
+            $mandrillMessage['tags'] = $message->getTags();
         }
 
         return $mandrillMessage;

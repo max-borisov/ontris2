@@ -1,5 +1,5 @@
 <?php
-namespace frontend\components\mandrill;
+namespace common\components\mandrill;
 
 use Yii;
 use yii\mail\BaseMessage;
