@@ -32,3 +32,5 @@ phpunit.phar
 *.eml
 
 SandboxController.php
+
+common/mail_output
