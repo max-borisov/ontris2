@@ -52,11 +52,6 @@ return [
                 ],
             ],
         ],
-        'mailer' => [
-            'class' => 'frontend\components\mandrill\Mailer',
-//            'useFileTransport' => true,
-            'useFileTransport' => false,
-        ],
     ],
     'params' => $params,
 ];
