@@ -147,12 +147,7 @@ class Message extends BaseMessage
 
     public function toString()
     {
-//        return $this->_htmlBody;
-//        exit();
-
-//        return $code = '<html><head></head><body><h2>OK OK</h2></body></html>';
-        return '<h3>toString() method. Must be implemented.</h3>';
-//        throw new Exception('Method is not implemented yet');
+        return $this->getHtmlBody();
     }
 
     public function attach($fileName = '', array $options = [])
