@@ -20,13 +20,28 @@ class MailqueueController extends Controller
         if (!$queue = $this->_getQueueObjects($priority)) {
             return Controller::EXIT_CODE_NORMAL;
         }
-        $mandrill = HelperMandrill::init();
+
         $hasErrors = false;
+
+        $mandrillMailer = Yii::$app->mailer;
+        /* @var $queueObject \frontend\models\MailQueue */
         foreach($queue as $queueObject) {
             $message = $this->_createMessageObject($queueObject);
             try {
-                $response = $mandrill->messages->send($message);
-                $this->_saveResponse($response, $queueObject);
+                $message = $mandrillMailer->compose();
+                $message->setFrom($queueObject->from_email);
+                $message->setFromName($queueObject->from_name);
+                $message->setTo($queueObject->to_email);
+                $message->setToName($queueObject->to_name);
+                $message->setSubject($queueObject->subject);
+                $message->setTextBody($queueObject->message_plain);
+                $message->setHtmlBody($queueObject->message_html);
+                if (!empty($queueObject->tags)) {
+                    $message->setTags(explode(',', $queueObject->tags));
+                }
+                $message->send();
+                $this->_saveResponse($mandrillMailer->getResponse(), $queueObject);
+                $mandrillMailer->setResponse(null);
                 usleep(20000);
             } catch(\Mandrill_Error $e) {
                 $hasErrors = true;
@@ -71,37 +86,6 @@ class MailqueueController extends Controller
             ->limit(1)
 //            ->limit()
             ->all();
-    }
-
-    /**
-     * Compile message object
-     *
-     * @var $queueObject \frontend\models\MailQueue
-     * @param $queueObject
-     * @return array
-     */
-    private function _createMessageObject($queueObject)
-    {
-        // Email message object
-        $message = [
-            'html'          => $queueObject->message_html,
-            'text'          => $queueObject->message_plain,
-            'subject'       => $queueObject->subject,
-            'from_email'    => $queueObject->from_email,
-            'from_name'     => $queueObject->from_name,
-            'to' => [
-                [
-                    'email' => $queueObject->to_email,
-                    'name'  => $queueObject->to_name,
-                    'type'  => 'to'
-                ]
-            ],
-        ];
-        if (!empty($queueObject->tags)) {
-            $message['tags'] = explode(',', $queueObject->tags);
-        }
-
-        return $message;
     }
 
     /**
