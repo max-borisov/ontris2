@@ -39,19 +39,6 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'i18n' => [
-            'translations' => [
-                '*' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@frontend/messages',
-                    'sourceLanguage' => 'en',
-                    'fileMap' => [
-//                        'app' => 'app.php',
-//                        'app/common' => 'app-common.php',
-                    ],
-                ],
-            ],
-        ],
     ],
     'params' => $params,
 ];
