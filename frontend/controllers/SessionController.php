@@ -25,7 +25,7 @@ class SessionController extends AppController
         return $this->render('index');
     }
 
-    public function actionLogin()
+    public function actionLogIn()
     {
         if (!HelperUser::isGuest()) {
             return $this->goHome();
@@ -45,7 +45,7 @@ class SessionController extends AppController
         }
     }
 
-    public function actionSignup()
+    public function actionSignUp()
     {
         $model = new SignUpForm();
         // Default country
@@ -61,7 +61,7 @@ class SessionController extends AppController
 
                 HelperNotification::sendConfirmationLink($user);
 
-                exit();
+//                exit();
             }
         }
         $accountList = (new UserAccountType)->getListBasedData();
