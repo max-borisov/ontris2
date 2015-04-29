@@ -23,6 +23,7 @@ use frontend\models\ActiveRecord;
  * @property integer $login_at
  * @property integer $activated_at
  * @property string $auth_key
+ * @property string $confirmation_token
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
@@ -34,7 +35,7 @@ class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 1;
-    const STATUS_NOT_ACTIVE = 2;
+    const STATUS_NOT_CONFIRMED = 2;
 
     /**
      * @inheritdoc
@@ -60,7 +61,8 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED, self::STATUS_NOT_ACTIVE]],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED, self::STATUS_NOT_CONFIRMED]],
+            ['status', 'default', 'value' => self::STATUS_NOT_CONFIRMED],
 
             /*[['country_id', 'username', 'type_id', 'bd_id', 'inviter_id', 'phone', 'is_company_admin', 'is_site_admin', 'invite_msg', 'login_at', 'activated_at', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
             [['country_id', 'type_id', 'bd_id', 'inviter_id', 'is_company_admin', 'is_site_admin', 'login_at', 'activated_at', 'status', 'created_at', 'updated_at'], 'integer'],
@@ -121,6 +123,41 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
+     * @param $confirmation_token Token that was send to user in order to verify email address
+     * @return null|static
+     */
+    public static function findByConfirmationToken($confirmation_token)
+    {
+        return static::findOne(['confirmation_token' => $confirmation_token, 'status' => self::STATUS_NOT_CONFIRMEDT]);
+    }
+
+    /**
+     * Generates email confirmation token
+     */
+    public function generateConfirmationToken()
+    {
+        $this->confirmation_token = Yii::$app->security->generateRandomString();
+    }
+
+    /**
+     * Removes email confirmation token
+     */
+    public function removeConfirmationToken()
+    {
+        $this->confirmation_token = null;
+    }
+
+    /**
+     * Generates password hash from password and sets it to the model
+     *
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password_hash = Yii::$app->security->generatePasswordHash($password);
+    }
+
+    /**
      * Validates password
      *
      * @param string $password password to validate
@@ -129,6 +166,14 @@ class User extends ActiveRecord implements IdentityInterface
     public function validatePassword($password)
     {
         return Yii::$app->security->validatePassword($password, $this->password_hash);
+    }
+
+    /**
+     * Generates "remember me" authentication key
+     */
+    public function generateAuthKey()
+    {
+        $this->auth_key = Yii::$app->security->generateRandomString();
     }
 
     /**
