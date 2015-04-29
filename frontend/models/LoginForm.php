@@ -40,6 +40,7 @@ class LogInForm extends Model
      */
     public function validatePassword($attribute, $params)
     {
+        // @todo Verify if email was confirmed
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {

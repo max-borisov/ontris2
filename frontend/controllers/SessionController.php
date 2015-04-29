@@ -8,8 +8,10 @@ use frontend\models\SignUpForm;
 use frontend\models\UserAccountType;
 use frontend\models\CountryList;
 use frontend\models\UserReferrer;
+use common\components\HelperNotification;
 
 use frontend\components\Variable;
+use yii\helpers\VarDumper;
 
 /**
  * Session controller
@@ -50,9 +52,16 @@ class SessionController extends AppController
         $model->country_id = CountryList::DENMARK;
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
+
+//                Variable::dump($user);
+
+                /*if (Yii::$app->getUser()->login($user)) {
                     return $this->goHome();
-                }
+                }*/
+
+                HelperNotification::sendConfirmationLink($user);
+
+                exit();
             }
         }
         $accountList = (new UserAccountType)->getListBasedData();
