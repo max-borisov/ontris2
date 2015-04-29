@@ -22,11 +22,9 @@ class MailqueueController extends Controller
         }
 
         $hasErrors = false;
-
         $mandrillMailer = Yii::$app->mailer;
         /* @var $queueObject \frontend\models\MailQueue */
         foreach($queue as $queueObject) {
-            $message = $this->_createMessageObject($queueObject);
             try {
                 $message = $mandrillMailer->compose();
                 $message->setFrom($queueObject->from_email);
@@ -34,7 +32,6 @@ class MailqueueController extends Controller
                 $message->setTo($queueObject->to_email);
                 $message->setToName($queueObject->to_name);
                 $message->setSubject($queueObject->subject);
-                $message->setTextBody($queueObject->message_plain);
                 $message->setHtmlBody($queueObject->message_html);
                 if (!empty($queueObject->tags)) {
                     $message->setTags(explode(',', $queueObject->tags));

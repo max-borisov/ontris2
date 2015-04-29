@@ -16,7 +16,6 @@ use frontend\components\HelperBase;
  * @property string $to_email
  * @property string $subject
  * @property string $message_html
- * @property string $message_plain
  * @property string $tags
  * @property integer $max_attempts
  * @property integer $attempts
@@ -87,7 +86,6 @@ class MailQueue extends ActiveRecord
         $queue->to_email = $params['to_email'];
         $queue->to_name = $params['to_name'];
         $queue->subject = $params['subject'];
-        $queue->message_plain = $params['message_plain'];
         $queue->message_html = $params['message_html'];
         if (!empty($params['tags'])) {
             // Tags should be an array
@@ -115,7 +113,6 @@ class MailQueue extends ActiveRecord
         if (empty($params['to_email'])
             || empty($params['to_name'])
             || empty($params['subject'])
-            || empty($params['message_plain'])
             || empty($params['message_html'])
         ) {
             throw new Exception('Some required fields are missed.');
@@ -135,7 +132,6 @@ class MailQueue extends ActiveRecord
             'to_email' => 'To Email',
             'subject' => 'Subject',
             'message_html' => 'Message Html',
-            'message_plain' => 'Message Plain',
             'tags' => 'Tags',
             'max_attempts' => 'Max Attempts',
             'attempts' => 'Attempts',
