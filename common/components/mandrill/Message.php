@@ -4,6 +4,7 @@ namespace common\components\mandrill;
 use Yii;
 use yii\mail\BaseMessage;
 use yii\base\Exception;
+use frontend\components\HelperBase;
 
 class Message extends BaseMessage
 {
@@ -163,5 +164,15 @@ class Message extends BaseMessage
     public function embedContent($content = '', array $options = [])
     {
         throw new Exception('Method is not implemented yet');
+    }
+
+    public function useDefaultFrom()
+    {
+        $this->setFrom(HelperBase::getParam('fromEmail'));
+    }
+
+    public function useDefaultFromName()
+    {
+        $this->setFromName(HelperBase::getParam('fromName'));
     }
 }
