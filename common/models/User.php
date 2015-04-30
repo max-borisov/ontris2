@@ -6,6 +6,7 @@ use Yii;
 use yii\web\IdentityInterface;
 use yii\behaviors\TimestampBehavior;
 use frontend\models\ActiveRecord;
+use yii\db\Query;
 
 /**
  * This is the model class for table "user".
@@ -174,6 +175,21 @@ class User extends ActiveRecord implements IdentityInterface
     public function generateAuthKey()
     {
         $this->auth_key = Yii::$app->security->generateRandomString();
+    }
+
+    /**
+     * Get list of admins. Site admin has access to admin panel.
+     *
+     * @return array
+     */
+    public static function getAdmins()
+    {
+        return (new Query())
+            ->select('id, username, email')
+            ->from(static::tableName())
+            ->where('is_site_admin = 1 AND status = :status', [':status' => static::STATUS_ACTIVE])
+            ->orderBy('id ASC')
+            ->all();
     }
 
     /**

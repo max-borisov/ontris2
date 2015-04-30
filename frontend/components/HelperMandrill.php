@@ -15,7 +15,7 @@ class HelperMandrill
 //    public static $TAG_ORDER_NOTIFICATION           = 'order-notification';
 //    public static $TAG_PENDING_ORDER_NOTIFICATION   = 'pending-order-notification';
 //    public static $TAG_POD_NOTIFICATION             = 'pod-notification';
-//    public static $TAG_ADMIN_NOTIFICATION           = 'admin-notification';
+    public static $TAG_ADMIN_NOTIFICATION           = 'admin-notification';
 
     public static $RECIPIENT_STATUS_SENT        = 'sent';
     public static $RECIPIENT_STATUS_QUEUED      = 'queued';

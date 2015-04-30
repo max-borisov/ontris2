@@ -7,6 +7,7 @@ use frontend\models\MailQueue;
 use frontend\components\HelperBase;
 use frontend\components\HelperMandrill;
 use yii\helpers\Url;
+use common\models\User;
 
 use frontend\components\Variable;
 
@@ -19,7 +20,7 @@ class HelperNotification extends Component
      * @return bool
      * @throws \yii\base\Exception
      */
-    public static function sendConfirmationLink(\common\models\User $user)
+    public static function sendConfirmationLink(User $user)
     {
         $mailer = Yii::$app->mailer;
         $confirmationUrl = Url::toRoute(['/user/confirmation', 'token' => $user->confirmation_token], true);
@@ -39,46 +40,35 @@ class HelperNotification extends Component
     }
 
     /**
-     * Send notification to site admin about a new user
-     * @param User $model
+     * Notify site admins about new users
+     *
+     * @param User $user New user
      * @return bool
+     * @throws \yii\base\Exception
      */
-    /*private function _notifyAdminAboutNewUser(User $model)
+    public static function notifyAdminAboutNewUser(User $user)
     {
-        $siteAdmins = User::model()->getSiteAdmins();
-        $mailParams = Utility::getConfig('mailing')['admin_new_user_notification']['en'];
-        $subj = $mailParams['subject'];
+        $mailer = Yii::$app->mailer;
+        $admins = User::getAdmins();
+        $userProfileUrl = HelperBase::getDashboardBaseUrl() . '/admin/members/view/uid/' . $user->id . '.html';
+        $message = $mailer->compose('en/notifyAdminAboutNewUser', [
+            'userName'       => $user->username,
+            'userEmail'      => $user->email,
+            'userProfileUrl' => $userProfileUrl,
+        ]);
+        $emailBody = $message->getHtmlBody();
 
-        $profilePlainLink = str_replace('http://', 'http://dashboard.', Utility::getHomeUrl()) . '/admin/members/view/uid/' . $model->id .'.html';
-        $profileHtmlLink = CHtml::link('view', $profilePlainLink);
-
-        $emailPlain = $model->email;
-        $emailHtml = CHtml::mailto($emailPlain, $emailPlain);
-
-        // body with plain text
-        $msgPlain = str_replace(
-            ['{admin_name}', '{user_name}', '{user_email}', '{link}'],
-            ['admin', $model->full_name, $emailPlain, $profilePlainLink],
-            file_get_contents($mailParams['plain'])
-        );
-
-        // body with html text
-        $msgHtml = str_replace(
-            ['{admin_name}', '{user_name}', '{user_email}', '{link}'],
-            ['admin', $model->full_name, $emailHtml, $profileHtmlLink],
-            file_get_contents($mailParams['html']));
-
-        foreach ($siteAdmins as $admin) {
-            MailQueue::model()->put(
-                $admin['email'],
-                $admin['full_name'],
-                $subj,
-                $msgPlain,
-                Utility::prepareHtmlEmail($msgHtml, $admin['full_name']),
-                [MandrillHelper::$TAG_ADMIN_NOTIFICATION],
-                1
-            );
+        foreach ($admins as $admin) {
+            MailQueue::add([
+                'to_email'     => $admin['email'],
+                'to_name'      => $admin['username'],
+                'subject'      => Yii::t('email-subject', 'notify_admin_about_new_user'),
+                'message_html' => $emailBody,
+                'tags'         => [HelperMandrill::$TAG_ADMIN_NOTIFICATION],
+                'priority'     => MailQueue::PRIORITY_LOW,
+            ]);
         }
+
         return true;
-    }*/
+    }
 }

@@ -60,6 +60,7 @@ class SessionController extends AppController
                 }*/
 
                 HelperNotification::sendConfirmationLink($user);
+                HelperNotification::notifyAdminAboutNewUser($user);
 
 //                exit();
             }
