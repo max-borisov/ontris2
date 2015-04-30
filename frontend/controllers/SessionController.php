@@ -9,6 +9,8 @@ use frontend\models\UserAccountType;
 use frontend\models\CountryList;
 use frontend\models\UserReferrer;
 use common\components\HelperNotification;
+use yii\helpers\Url;
+use yii\filters\AccessControl;
 
 use frontend\components\Variable;
 use yii\helpers\VarDumper;
@@ -18,6 +20,22 @@ use yii\helpers\VarDumper;
  */
 class SessionController extends AppController
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['log-in', 'sign-up'],
+                        'roles' => ['?']
+                    ],
+                ],
+            ]
+        ];
+    }
+
     // @todo Add action filter(login)
     // @todo Add Session prefix for models
     public function actionIndex()
@@ -52,17 +70,14 @@ class SessionController extends AppController
         $model->country_id = CountryList::DENMARK;
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
-
 //                Variable::dump($user);
-
                 /*if (Yii::$app->getUser()->login($user)) {
                     return $this->goHome();
                 }*/
 
+                Yii::$app->session->setFlash('signup_success', Yii::t('sign-up', 'message_success'), false);
                 HelperNotification::sendConfirmationLink($user);
                 HelperNotification::notifyAdminAboutNewUser($user);
-
-//                exit();
             }
         }
         $accountList = (new UserAccountType)->getListBasedData();
