@@ -17,15 +17,12 @@ $tCategory = 'sign-in';
     <div class="login-column">
         <h2><?= Yii::t($tCategory, 'page.title');?></h2>
         <?php
-        // Show account activation success msg
-        /*if (Yii::app()->user->hasFlash('user_activation_success')) {
-            echo "<div class='flash-success'>" . Yii::app()->user->getFlash('user_activation_success') . "</div>";
-        }*/
-        // Show account activation error msg
-        /*if (Yii::app()->user->hasFlash('user_activation_failure')) {
-            echo "<div class='flash-error'>" . Yii::app()->user->getFlash('user_activation_failure') . "</div>";
-        }*/
-
+        if ($messageSuccess = Yii::$app->session->getFlash('email_confirmation_success')) {
+            echo "<div class='flash-success'>", $messageSuccess ,"</div>";
+        }
+        if ($messageError = Yii::$app->session->getFlash('email_confirmation_error')) {
+            echo "<div class='flash-error'>", $messageError, "</div>";
+        }
         // Show validation errors
         if ($model->hasErrors()) {
             echo Html::tag('div', Html::errorSummary($model), ['class' => 'error-summary']);

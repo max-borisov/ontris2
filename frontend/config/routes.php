@@ -8,5 +8,6 @@ return [
         '/sandbox' => 'sandbox/index',
         '/sign-in' => 'session/log-in',
         '/sign-up' => 'session/sign-up',
+        '/user/confirmation' => 'session/email-confirmation',
     ],
 ];

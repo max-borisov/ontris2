@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use Yii;
 use yii\web\Controller;
 
 class AppController extends Controller
@@ -17,5 +18,10 @@ class AppController extends Controller
                 'class' => 'yii\web\ErrorAction',
             ],
         ];
+    }
+
+    public function goSignIn()
+    {
+        return Yii::$app->getResponse()->redirect('/sign-in');
     }
 }

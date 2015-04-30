@@ -11,6 +11,7 @@ use frontend\models\UserReferrer;
 use common\components\HelperNotification;
 use yii\helpers\Url;
 use yii\filters\AccessControl;
+use common\models\User;
 
 use frontend\components\Variable;
 
@@ -27,7 +28,7 @@ class SessionController extends AppController
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['log-in', 'sign-up'],
+                        'actions' => ['log-in', 'sign-up', 'email-confirmation'],
                         'roles' => ['?']
                     ],
                 ],
@@ -89,5 +90,19 @@ class SessionController extends AppController
             'accountList' => $accountList,
             'referrerList' => $referrerList,
         ]);
+    }
+
+    // @todo Restrict to guests only
+    public function actionEmailConfirmation($token)
+    {
+        if (!$token) $this->goHome();
+        $user = User::findByConfirmationToken($token);
+        if (!$user || !$user->confirmEmail()) {
+            Yii::$app->session->setFlash('email_confirmation_error', Yii::t('user', 'email.confirmation.error'));
+        } else {
+            Yii::$app->session->setFlash('email_confirmation_success', Yii::t('user', 'email.confirmation.success'));
+        }
+
+        return $this->goSignIn();
     }
 }

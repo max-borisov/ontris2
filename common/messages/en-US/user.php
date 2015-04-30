@@ -28,8 +28,8 @@ The interval is 10 minutes for an accelerated transport and 30 minutes for norma
     'user.invite.no.answer' => 'Unanswered invitations',
     'user.inviter.user' => 'Inviter',
 
-    'user.activation.success' => 'Your account has been activated.<br /><br />Now you are able to login into system.',
-    'user.activation.failure' => "Your account couldn't be activated.<br /><br />Please try again later or contact with support team <a href='mailto:$support'>$support</a>.",
+    'email.confirmation.success' => 'Your account has been activated.<br /><br />Now you are able to login into system.',
+    'email.confirmation.error' => "Your account couldn't be activated.<br /><br />Please try again later or contact with support team <a href='mailto:$support'>$support</a>.",
     'user.reactivate.account.title' => 'Activate account',
     'user.reactivate.account.msg' => 'In order to activate account, please enter your email address and press submit button.<br />The activation link will be send to your email then.',
     'user.reactivate.account.success' => 'Activation link has been sent to your email.',

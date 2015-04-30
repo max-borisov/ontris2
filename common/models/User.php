@@ -22,7 +22,7 @@ use yii\db\Query;
  * @property integer $is_site_admin
  * @property string $invite_msg
  * @property integer $login_at
- * @property integer $activated_at
+ * @property integer $confirmed_at
  * @property string $auth_key
  * @property string $confirmation_token
  * @property string $password_hash
@@ -64,11 +64,6 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED, self::STATUS_NOT_CONFIRMED]],
             ['status', 'default', 'value' => self::STATUS_NOT_CONFIRMED],
-
-            /*[['country_id', 'username', 'type_id', 'bd_id', 'inviter_id', 'phone', 'is_company_admin', 'is_site_admin', 'invite_msg', 'login_at', 'activated_at', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
-            [['country_id', 'type_id', 'bd_id', 'inviter_id', 'is_company_admin', 'is_site_admin', 'login_at', 'activated_at', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['username', 'phone', 'invite_msg', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
-            [['auth_key'], 'string', 'max' => 32]*/
         ];
     }
 
@@ -129,7 +124,21 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findByConfirmationToken($confirmation_token)
     {
-        return static::findOne(['confirmation_token' => $confirmation_token, 'status' => self::STATUS_NOT_CONFIRMEDT]);
+        return static::findOne(['confirmation_token' => $confirmation_token, 'status' => self::STATUS_NOT_CONFIRMED]);
+    }
+
+    /**
+     * Set email as confirmed
+     *
+     * @return bool
+     */
+    public function confirmEmail()
+    {
+        $this->status = static::STATUS_ACTIVE;
+        $this->confirmation_token = '';
+        $this->confirmed_at = time();
+
+        return $this->save(false);
     }
 
     /**
@@ -219,7 +228,7 @@ class User extends ActiveRecord implements IdentityInterface
             'is_site_admin' => 'Is Site Admin',
             'invite_msg' => 'Invite Msg',
             'login_at' => 'Login At',
-            'activated_at' => 'Activated At',
+            'confirmed_at' => 'Confirmed At',
             'auth_key' => 'Auth Key',
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',

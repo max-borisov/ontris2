@@ -28,8 +28,8 @@ Intervallet er 10 minutter for en hastetransport og 30 minutter for en normal tr
 	'user.invite.no.answer' => 'Ubesvarede invitationer',
     'user.inviter.user' => 'Invitationen',
 
-    'user.activation.success' => 'Din konto er aktiveret og du kan nu logge ind:',
-    'user.activation.failure' => "Din konto kunfne ikke't blive aktiveret. <br /> <br /> Prøv venligst igen senere eller kontakt med support team <a href='mailto:$support'>$support</a>.",
+    'email.confirmation.success' => 'Din konto er aktiveret og du kan nu logge ind:',
+    'user.confirmation.error' => "Din konto kunfne ikke't blive aktiveret. <br /> <br /> Prøv venligst igen senere eller kontakt med support team <a href='mailto:$support'>$support</a>.",
     'user.reactivate.account.title' => 'Aktiver konto',
     'user.reactivate.account.msg' => 'For at aktivere kontoen, skal du indtaste din e-mailadresse og tryk på send-knappen. <br /> Aktiveringslink vil blive sendt til din e-mail og derefter.',
     'user.reactivate.account.success' => 'Aktiveringslink er blevet sendt til din e-mail.',
