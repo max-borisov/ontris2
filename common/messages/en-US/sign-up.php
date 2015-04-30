@@ -14,7 +14,7 @@ return [
     'form.user.password' => 'Password:',
     'form.user.password.repeat' => 'Repeat password:',
 
-    'operation_success' => 'Your data have been saved and confirmation link was sent to your mail. <br /><br />In order to complete the operation, please check your email for further instructions.',
+    'message_success' => 'Your data have been saved and confirmation link was sent to your mail. <br /><br />In order to complete the operation, please check your email for further instructions.',
     'operation_failure' => "Unfortunately during registration some errors occurred. Please, try again later. <br /><br />We appreciate it if you inform our support team <a href='mailto:$support'>$support</a> about this problem.",
 
     'sign.up.block.title' => 'Sign up',
