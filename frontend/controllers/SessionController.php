@@ -13,7 +13,6 @@ use yii\helpers\Url;
 use yii\filters\AccessControl;
 
 use frontend\components\Variable;
-use yii\helpers\VarDumper;
 
 /**
  * Session controller

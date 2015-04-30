@@ -178,6 +178,16 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
+     * Check if a user has email confirmed
+     *
+     * @return bool
+     */
+    public function hasConfirmedEmail()
+    {
+        return $this->status == static::STATUS_ACTIVE ? true : false;
+    }
+
+    /**
      * Get list of admins. Site admin has access to admin panel.
      *
      * @return array

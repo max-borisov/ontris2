@@ -16,8 +16,7 @@ class LogInForm extends Model
     public $rememberMe = true;
 
     private $_user = false;
-    private $_tUserCategory = 'user';
-    private $_tSignInCategory = 'sign-in';
+    private $_tCategory = 'sign-in';
 
     /**
      * @inheritdoc
@@ -28,6 +27,7 @@ class LogInForm extends Model
             [['email', 'password'], 'required'],
             ['rememberMe', 'boolean'],
             ['password', 'validatePassword'],
+            ['email', 'checkEmailConfirmation'],
         ];
     }
 
@@ -40,11 +40,26 @@ class LogInForm extends Model
      */
     public function validatePassword($attribute, $params)
     {
-        // @todo Verify if email was confirmed
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
                 $this->addError($attribute, 'Incorrect username or password.');
+            }
+        }
+    }
+
+    /**
+     * User must confirm email address before login
+     *
+     * @param $attribute
+     * @param $params
+     */
+    public function checkEmailConfirmation($attribute, $params)
+    {
+        if (!$this->hasErrors()) {
+            $user = $this->getUser();
+            if ($user && !$user->hasConfirmedEmail()) {
+                $this->addError($attribute, Yii::t('sign-in', 'msg.activation.needed'));
             }
         }
     }
@@ -83,9 +98,9 @@ class LogInForm extends Model
     public function attributeLabels()
     {
         return [
-            'email' => Yii::t($this->_tUserCategory, 'form.user.email'),
-            'password' => Yii::t($this->_tUserCategory, 'form.user.password'),
-            'rememberMe' => Yii::t($this->_tSignInCategory, 'msg.remember.me'),
+            'email' => Yii::t($this->_tCategory, 'form.user.email'),
+            'password' => Yii::t($this->_tCategory, 'form.user.password'),
+            'rememberMe' => Yii::t($this->_tCategory, 'msg.remember.me'),
         ];
     }
 }

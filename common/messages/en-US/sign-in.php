@@ -11,4 +11,6 @@ return [
     'msg.remember.me' => 'Remember me',
     'msg.shared.comp' => 'Remove if you are on a shared computer',
     'msg.forgot.password' => 'Forgot your password ?',
+    'form.user.email' => 'Email:',
+    'form.user.password' => 'Password:',
 ];
