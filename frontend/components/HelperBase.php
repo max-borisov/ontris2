@@ -4,6 +4,8 @@ namespace frontend\components;
 use Yii;
 use yii\base\Component;
 use yii\base\Exception;
+use yii\helpers\Url;
+
 use yii\helpers\VarDumper;
 
 class HelperBase extends Component
@@ -95,5 +97,12 @@ class HelperBase extends Component
             $output .= '&#'.ord($email[$i]).';';
         }
         return $output;
+    }
+
+    public static function getDashboardBaseUrl($siteUrl = '')
+    {
+        $baseUrl = $siteUrl ? $siteUrl : Url::home();
+
+        return str_replace('http://', 'http://dashboard.', $baseUrl);
     }
 }
